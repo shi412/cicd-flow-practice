@@ -24,3 +24,14 @@ jobs:
 
       - name: Run Tests
         run: python test_app.py
+
+      - name: Create Artifact
+        run: |
+          mkdir -p build
+          cp app.py build/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-app
+          path: build/app.py
